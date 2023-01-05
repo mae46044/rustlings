@@ -8,17 +8,9 @@
 // Execute `rustlings hint traits3` or use the `hint` watch subcommand for a hint.
 
 pub trait Licensed {
-    fn licensing_info(&self) -> String;
-}
-
-impl Licensed for dyn Software {
     fn licensing_info(&self) -> String {
-        format!("{}", self.version())
+        "Some information".into()
     }
-}
-
-pub trait Software {
-    fn version(self) -> String;
 }
 
 struct SomeSoftware {
@@ -27,18 +19,6 @@ struct SomeSoftware {
 
 struct OtherSoftware {
     version_number: String,
-}
-
-impl Software for SomeSoftware {
-    fn version(self) -> String {
-        format!("{}", self.version_number)
-    }
-}
-
-impl Software for OtherSoftware {
-    fn version(self) -> String {
-        format!("{}", self.version_number)
-    }
 }
 
 impl Licensed for SomeSoftware {} // Don't edit this line
